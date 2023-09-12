@@ -25,7 +25,12 @@ impl S{
 			times:RwLock::new(RefCell::new(Tm{kts:HashMap::new()})),
 		}
 	}
-	
+	pub fn check(&self){
+    	let now = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_millis();
+		let before = self.times.write().unwrap().borrow().kts.clone();
+    	self.times.write().unwrap().borrow_mut().kts.retain(|_, timestamp| now - timestamp.1 <= timestamp.0);
+        self.contents.write().unwrap().borrow_mut().kvs.retain(|key, _| (self.times.write().unwrap().borrow().kts.contains_key(key)||(!before.contains_key(key))));
+	}
 }
 
 unsafe impl Send for S {}
@@ -48,7 +53,7 @@ impl volo_gen::volo::example::ItemService for S {
 		let key = (&_req.key[..]).to_string();
 		let value = (&_req.value[..]).to_string();
 		let life:u128 = _req.life.try_into().unwrap();
-		//self.check();
+		self.check();
 		//println!("{}",life);
 		match opstr {
 			"get" => {
@@ -144,7 +149,6 @@ where
     Cx: Send + 'static,
 {
     async fn call(&self, cx: &mut Cx, req: Req) -> Result<S::Response, S::Error> {
-        
 		let command = format!("{:?}", &req);
 		if command.contains("114514") {
 			return Err(S::Error::from(Error::msg("There are inappropriate words and they have been filtered")));
