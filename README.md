@@ -1,6 +1,7 @@
 # my-redis
 3210103818 杨朗骐
 # 测试  
+其中中间层过滤的词为“114514”  
 
 <img width="567" alt="截屏2023-09-12 下午10 25 57" src="https://github.com/westoutlegenddog/my-redis/assets/103580732/182d9269-653e-4c32-bb30-1fe766275b53">  
 
