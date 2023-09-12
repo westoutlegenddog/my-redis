@@ -1,8 +1,10 @@
 # my-redis
-3210103818 杨朗骐
+3210103818 杨朗骐  
+实现了所有基础要求，包括 set 的 expire 版本
 # 测试  
-其中中间层过滤的词为“114514”  
+测试了所有基础要求，其中中间层过滤的词为“114514”  
 
-<img width="567" alt="截屏2023-09-12 下午10 25 57" src="https://github.com/westoutlegenddog/my-redis/assets/103580732/182d9269-653e-4c32-bb30-1fe766275b53">  
+<img width="572" alt="截屏2023-09-12 下午10 57 06" src="https://github.com/westoutlegenddog/my-redis/assets/103580732/5bcfcbc2-642e-4b26-aa9f-f128ee85a6f3">
 
-<img width="838" alt="截屏2023-09-12 下午10 26 58" src="https://github.com/westoutlegenddog/my-redis/assets/103580732/81d1f73d-dff3-4b61-821b-ab3d21ae5c82">
+<img width="1161" alt="截屏2023-09-12 下午10 55 31" src="https://github.com/westoutlegenddog/my-redis/assets/103580732/31dd3e74-a051-49ba-9a21-eddccbf89f7d">
+
